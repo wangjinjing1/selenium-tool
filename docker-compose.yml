@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  selenium-tool:
+    image: wangjinjing/selenium-tool:1.0.0
+    container_name: selenium-tool
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      SE_VNC_PASSWORD: admin
+      SPRING_CONFIG_ADDITIONAL_LOCATION: optional:file:/app/config/
+    volumes:
+      - ./application.yml:/app/config/application.yml:ro
+    ports:
+      - "7900:7900"
